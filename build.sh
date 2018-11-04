@@ -10,7 +10,7 @@ echo -n "Run it [Y] ?"
 read DORUNIT
 if [ "Y$DORUNIT" == "Y" ];	 then 	DORUNIT="Y" ; fi
 if [ "${DORUNIT^^}" == "YES" ] ; then 	DORUNIT="Y" ; fi
-if [ "$DORUNIT" != "Y" ] ;	 then 	echo "You can run it like this:";echo "docker run -it -p 8080:80 -p 2222:22 damp bash startAll.sh";exit;fi
+if [ "$DORUNIT" != "Y" ] ;	 then 	echo "You can run it like this:";echo "docker run  -it -p 8080:80 -p 2222:22 --privileged=true --add-cap=ALL  damp bash startAll.sh";exit;fi
 echo -n "Select the localhost port for HTTP [8080] ?"
 read PHTTP
 echo -n "Select the localhost port for SSH [2222] ?"
